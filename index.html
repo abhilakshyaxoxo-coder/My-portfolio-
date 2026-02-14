@@ -3,110 +3,284 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhi Lakshya | Performance Engineering</title>
+    <title>Abhi Lakshya | Performance Developer</title>
     <style>
-        :root {
-            --primary: #008080; /* Teal for Tech/Startups */
-            --dark: #36454F;    /* Charcoal for Professionalism */
-            --light: #f9fafb;
-            --accent: #008000;  /* Green for Efficiency/Growth */
-        }
-        * { box-sizing: border-box; }
+        /* --- General Resets & Base Styles --- */
         body {
-            font-family: 'Inter', -apple-system, system-ui, sans-serif;
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.5;
+            font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
-            padding: 40px 20px;
-        }
-        .container {
-            max-width: 850px;
-            margin: auto;
-            background: white;
-            padding: 50px;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-        }
-        header {
+            padding: 0;
+            background-color: #f0f2f5; /* Light grey background for the page */
             display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            border-bottom: 3px solid var(--primary);
-            padding-bottom: 20px;
+            justify-content: center;
+            align-items: flex-start; /* Align to top */
+            min-height: 100vh;
         }
-        h1 { margin: 0; font-size: 2.8rem; color: var(--primary); letter-spacing: -1.5px; }
-        .status-badge {
-            background: var(--accent);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
+
+        .resume-container {
+            display: flex;
+            width: 100%;
+            max-width: 900px; /* Standard A4-ish width for resumes */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            margin: 30px 0; /* Margin top/bottom for smaller screens */
+        }
+
+        /* --- Left Column Styling --- */
+        .left-column {
+            width: 35%;
+            background-color: #e6f7e6; /* Light green background */
+            padding: 30px;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .photo-container {
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2; /* Ensure photo is above green shapes */
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .name-job {
+            text-align: center;
+            margin-top: 20px;
+            width: 100%; /* Ensure name and job title take full width */
+        }
+
+        .name-job h1 {
+            font-size: 2.2em;
+            margin: 0;
+            color: #2c3e50; /* Darker text for name */
+        }
+
+        .name-job h2 {
+            font-size: 1em;
+            margin: 5px 0 20px 0;
+            color: #555;
+            font-weight: normal;
+        }
+
+        .profile-section {
+            background-color: #d9edd9; /* Slightly darker green for profile */
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 0.9em;
+            text-align: left; /* Align profile text left */
+        }
+
+        .profile-section h3, .contact-section h3 {
+            color: #2c3e50;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-section {
+            margin-top: 30px;
+            width: 100%;
+            text-align: left;
+        }
+
+        .contact-section div {
+            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+
+        .contact-section strong {
+            color: #2c3e50;
+        }
+
+        /* --- Right Column Styling --- */
+        .right-column {
+            width: 65%;
+            padding: 30px;
+            background-color: #fff;
+            color: #333;
+        }
+
+        .section-header {
+            background-color: #388e3c; /* Darker green for headers */
+            color: #fff;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            font-size: 1.2em;
             font-weight: bold;
             text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 3px;
         }
-        section { margin-top: 35px; }
-        h2 { color: var(--primary); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .card {
-            border: 1px solid #e5e7eb;
-            padding: 20px;
-            border-radius: 8px;
-            transition: transform 0.2s;
+
+        .content-block {
+            margin-bottom: 20px;
         }
-        .card:hover { transform: translateY(-5px); border-color: var(--primary); }
-        .skill-tag {
-            display: inline-block;
-            background: #e0f2f1;
-            color: var(--primary);
-            padding: 4px 10px;
-            border-radius: 4px;
-            margin: 4px;
-            font-size: 0.85rem;
-            font-weight: 600;
+
+        .content-block h3 {
+            margin: 0;
+            font-size: 1.1em;
+            color: #2c3e50;
+        }
+
+        .content-block p {
+            margin: 5px 0 0 0;
+            font-size: 0.9em;
+        }
+
+        .dates {
+            font-size: 0.8em;
+            color: #666;
+            margin-top: 2px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        /* Skills Section */
+        .skills-section .skill-item {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .skills-section .skill-name {
+            width: 100px; /* Fixed width for skill name */
+            font-size: 0.9em;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .skills-section .progress-bar-container {
+            flex-grow: 1;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            height: 8px;
+            overflow: hidden;
+            margin-left: 10px;
+        }
+
+        .skills-section .progress-bar {
+            background-color: #388e3c; /* Green progress bar */
+            height: 100%;
+            border-radius: 5px;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .resume-container {
+                flex-direction: column;
+                margin: 20px;
+            }
+            .left-column, .right-column {
+                width: 100%;
+                padding: 20px;
+            }
+            .left-column {
+                padding-bottom: 0; /* Reduce bottom padding on mobile for left column */
+            }
+            .right-column {
+                padding-top: 20px; /* Adjust top padding for right column on mobile */
+            }
+            .section-header {
+                margin-top: 20px; /* Add margin to separate sections better on mobile */
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <div>
-            <h1>Abhi Lakshya</h1>
-            <p style="margin: 5px 0 0 0; font-weight: 600;">Vanilla Dev & Python Automator</p>
+<div class="resume-container">
+    <div class="left-column">
+        <div class="photo-container">
+            <img src="https://i.imgur.com/example_photo.jpg" alt="Your Photo">
         </div>
-        <div class="status-badge">Available for Projects</div>
-    </header>
 
-    <section>
-        <h2>The Efficiency Stack</h2>
-        <div>
-            <span class="skill-tag">Vanilla HTML5/CSS3</span>
-            <span class="skill-tag">ES6+ JavaScript</span>
-            <span class="skill-tag">Python Lead-Gen</span>
-            <span class="skill-tag">Data Verification</span>
-            <span class="skill-tag">Lighthouse Score: 100</span>
-            <span class="skill-tag">Git/GitHub</span>
+        <div class="name-job">
+            <h1>ABHI LAKSHYA</h1>
+            <h2>VANILLA & PYTHON PERFORMANCE ENGINEER</h2>
         </div>
-    </section>
 
-    <section>
-        <h2>Core Projects</h2>
-        <div class="grid">
-            <div class="card">
-                <div style="font-weight: bold; color: var(--primary);">Automated Lead Engine</div>
-                <p style="font-size: 0.9rem; margin-top: 10px;">Custom Python scripts cleaning and managing 20k+ B2B data points with zero human intervention.</p>
+        <div class="profile-section">
+            <h3>PROFILE</h3>
+            <p>
+                Highly motivated and results-driven independent contractor specializing in high-performance web development with Vanilla HTML, CSS, and JavaScript. Proven ability to build robust Python automation systems for lead generation and data management. Focused on delivering ultra-fast, efficient web solutions that significantly improve user experience and Core Web Vitals.
+            </p>
+            <p>
+                *Operating as an independent service provider; all legal and financial transactions are securely managed via guardian-verified accounts.*
+            </p>
+        </div>
+
+        <div class="contact-section">
+            <h3>CONTACT</h3>
+            <div><strong>PHONE:</strong> +91 [Your Phone Number]</div>
+            <div><strong>WEBSITE:</strong> <a href="http://yourportfolio.com" style="color: #388e3c; text-decoration: none;">yourportfolio.com</a></div>
+            <div><strong>EMAIL:</strong> <a href="mailto:your_email@example.com" style="color: #388e3c; text-decoration: none;">your_email@example.com</a></div>
+            <div><strong>LOCATION:</strong> Bareilly, India</div>
+        </div>
+    </div>
+
+    <div class="right-column">
+        <div class="education-section">
+            <div class="section-header">EDUCATION</div>
+            <div class="content-block">
+                <h3>[Your Current School Name]</h3>
+                <span class="dates">2023 – Present</span>
+                <p>Focus on [mention relevant subjects, e.g., Mathematics, Computer Science fundamentals]. Continuously self-learning advanced web technologies and automation frameworks.</p>
             </div>
-            <div class="card">
-                <div style="font-weight: bold; color: var(--primary);">Ultra-Light Frontends</div>
-                <p style="font-size: 0.9rem; margin-top: 10px;">Building zero-framework interfaces that load in <500ms for high-conversion startup pages.</p>
+            </div>
+
+        <div class="work-experience-section">
+            <div class="section-header">WORK EXPERIENCE</div>
+            <div class="content-block">
+                <h3>INDEPENDENT CONTRACTOR | WEB PERFORMANCE & AUTOMATION</h3>
+                <span class="dates">Oct 2023 – Present</span>
+                <ul>
+                    <li>Developed and deployed a Python-based lead generation system, successfully identifying and processing over 20,000 targeted B2B leads.</li>
+                    <li>Specialized in optimizing web frontends using Vanilla HTML, CSS, and JavaScript, consistently achieving 95+ Google Lighthouse scores.</li>
+                    <li>Collaborated with Sumit on project architecture and data verification, ensuring high-quality output and system reliability.</li>
+                    <li>Delivered client-facing solutions for local businesses, enhancing online presence and conversion rates through speed optimization.</li>
+                </ul>
+            </div>
+            </div>
+
+        <div class="skills-section">
+            <div class="section-header">SKILLS</div>
+            <div class="skill-item">
+                <span class="skill-name">Vanilla JS</span>
+                <div class="progress-bar-container"><div class="progress-bar" style="width: 95%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <span class="skill-name">HTML/CSS</span>
+                <div class="progress-bar-container"><div class="progress-bar" style="width: 98%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <span class="skill-name">Python</span>
+                <div class="progress-bar-container"><div class="progress-bar" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <span class="skill-name">Lead Gen</span>
+                <div class="progress-bar-container"><div class="progress-bar" style="width: 85%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <span class="skill-name">Git/GitHub</span>
+                <div class="progress-bar-container"><div class="progress-bar" style="width: 80%;"></div></div>
             </div>
         </div>
-    </section>
-
-    <section style="background: var(--light); padding: 20px; border-radius: 8px; font-size: 0.85rem;">
-        <strong>Legal Compliance:</strong> Services provided as an Independent Contractor via verified guardian-managed accounts. Compliant with international B2B contracting standards.
-    </section>
+    </div>
 </div>
 
 </body>
