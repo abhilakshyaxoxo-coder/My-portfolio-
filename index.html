@@ -3,73 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhi Lakshya | Performance Developer</title>
+    <title>Abhi Lakshya | Performance Engineering</title>
     <style>
         :root {
-            --bg: #ffffff;
-            --text: #1a1a1a;
-            --accent: #2563eb;
-            --gray: #6b7280;
+            --primary: #008080; /* Teal for Tech/Startups */
+            --dark: #36454F;    /* Charcoal for Professionalism */
+            --light: #f9fafb;
+            --accent: #008000;  /* Green for Efficiency/Growth */
         }
+        * { box-sizing: border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
-            background: var(--bg);
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.5;
+            margin: 0;
+            padding: 40px 20px;
         }
-        header { border-bottom: 2px solid var(--accent); padding-bottom: 20px; }
-        h1 { margin: 0; font-size: 2.5rem; letter-spacing: -1px; }
-        .tagline { color: var(--accent); font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
-        section { margin: 30px 0; }
-        h2 { border-left: 4px solid var(--accent); padding-left: 15px; text-transform: uppercase; font-size: 1.2rem; }
-        .skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
-        .skill-item { background: #f3f4f6; padding: 10px; border-radius: 4px; font-weight: 500; }
-        .project { margin-bottom: 20px; }
-        .project-title { font-weight: bold; font-size: 1.1rem; color: var(--accent); }
-        .contact-info { margin-top: 10px; font-size: 0.9rem; color: var(--gray); }
+        .container {
+            max-width: 850px;
+            margin: auto;
+            background: white;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 20px;
+        }
+        h1 { margin: 0; font-size: 2.8rem; color: var(--primary); letter-spacing: -1.5px; }
+        .status-badge {
+            background: var(--accent);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        section { margin-top: 35px; }
+        h2 { color: var(--primary); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .card {
+            border: 1px solid #e5e7eb;
+            padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+        .card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .skill-tag {
+            display: inline-block;
+            background: #e0f2f1;
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Abhi Lakshya</h1>
-    <div class="tagline">Vanilla JS & Python Automation Specialist</div>
-    <div class="contact-info">
-        Bareilly, India | Professional Service Provider via Guardian Portfolio
-    </div>
-</header>
+<div class="container">
+    <header>
+        <div>
+            <h1>Abhi Lakshya</h1>
+            <p style="margin: 5px 0 0 0; font-weight: 600;">Vanilla Dev & Python Automator</p>
+        </div>
+        <div class="status-badge">Available for Projects</div>
+    </header>
 
-<section>
-    <h2>Core Expertise</h2>
-    <div class="skill-grid">
-        <div class="skill-item">Vanilla HTML5/CSS3</div>
-        <div class="skill-item">High-Perf JavaScript</div>
-        <div class="skill-item">Python Automation</div>
-        <div class="skill-item">Lead Gen Systems</div>
-        <div class="skill-item">Lighthouse SEO (95+)</div>
-        <div class="skill-item">Git Workflow</div>
-    </div>
-</section>
+    <section>
+        <h2>The Efficiency Stack</h2>
+        <div>
+            <span class="skill-tag">Vanilla HTML5/CSS3</span>
+            <span class="skill-tag">ES6+ JavaScript</span>
+            <span class="skill-tag">Python Lead-Gen</span>
+            <span class="skill-tag">Data Verification</span>
+            <span class="skill-tag">Lighthouse Score: 100</span>
+            <span class="skill-tag">Git/GitHub</span>
+        </div>
+    </section>
 
-<section>
-    <h2>Featured Projects</h2>
-    <div class="project">
-        <div class="project-title">Automated B2B Lead Engine (Python)</div>
-        <p>Built a custom automation script to scrape, verify, and clean lead data for niche industries (HVAC, Legal). Managed CSV databases of 20,000+ entries with high accuracy.</p>
-    </div>
-    <div class="project">
-        <div class="project-title">Vanilla Performance Architecture</div>
-        <p>Specializing in lightweight frontend builds that outperform modern frameworks. Achieving sub-1s load times and 100/100 Core Web Vitals scores.</p>
-    </div>
-</section>
+    <section>
+        <h2>Core Projects</h2>
+        <div class="grid">
+            <div class="card">
+                <div style="font-weight: bold; color: var(--primary);">Automated Lead Engine</div>
+                <p style="font-size: 0.9rem; margin-top: 10px;">Custom Python scripts cleaning and managing 20k+ B2B data points with zero human intervention.</p>
+            </div>
+            <div class="card">
+                <div style="font-weight: bold; color: var(--primary);">Ultra-Light Frontends</div>
+                <p style="font-size: 0.9rem; margin-top: 10px;">Building zero-framework interfaces that load in <500ms for high-conversion startup pages.</p>
+            </div>
+        </div>
+    </section>
 
-<section>
-    <h2>Professional Status</h2>
-    <p>Operating as an <strong>Independent Technical Contractor</strong>. All legal contracts and financial transactions are managed through verified guardian accounts to ensure 100% compliance with international tax and labor regulations.</p>
-</section>
+    <section style="background: var(--light); padding: 20px; border-radius: 8px; font-size: 0.85rem;">
+        <strong>Legal Compliance:</strong> Services provided as an Independent Contractor via verified guardian-managed accounts. Compliant with international B2B contracting standards.
+    </section>
+</div>
 
 </body>
 </html>
